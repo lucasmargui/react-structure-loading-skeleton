@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<H1 align="center">Estrutura Next Dashboard </H1>
+<p align="center">🚀Criação de uma estrutura de dashboard em Next para referências futuras</p>
 
-## Getting Started
 
-First, run the development server:
+## Criação de projeto Next
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+npx create-next-app@latest nextjs-dashboard
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Adicionando pacotes 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+npm i @heroicons/react
+npm i clsx
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Alterando moduleResolution
 
-## Learn More
+Alteração da resolução de módulo para node em tsconfig.json
 
-To learn more about Next.js, take a look at the following resources:
+```
+...
+"moduleResolution": "node",
+...
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Diretório src\app
 
-## Deploy on Vercel
+## dashboard
+  Diretório onde armazenará os componentes relacionados a está página e tem como caminho https://localhost:3000/dashboard
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  ### (overview)
+ Para que loading seja aplicado apenas em dashboard é necessário a utilização de grupos de rotas, eles permitem que você organize arquivos em grupos lógicos sem afetar a estrutura do caminho do URL. Quando você cria uma nova pasta usando parênteses (), o nome não será incluído no caminho do URL. Assim, /dashboard/(overview)/page.tsx se torna https://localhost:3000/dashboard.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  - page.tsx
+
+     <div align="center">
+      <h2>Fluxo de inicialização</h2>
+      <img src="https://github.com/lucasmargui/React_Estrutura_Dashboard/assets/157809964/94ecaf81-39df-4bfa-a859-fecd68ac6780" style="width:100%">
+    </div>
+  
+  - loading.tsx
+    Página de loading que será renderizada enquanto os componentes aguardam para serem carregados através de streaming
+
+    <div align="center">
+      <h2>Skeleton</h2>
+      <img src="https://github.com/lucasmargui/React_Estrutura_Dashboard/assets/157809964/8b084696-0b63-4b9f-bb48-132427d1c786" style="width:100%">
+      <h2>Componente carregado com os dados</h2>
+      <img src="https://github.com/lucasmargui/React_Estrutura_Dashboard/assets/157809964/8a861e70-9933-45cd-9823-2b4e93df2cb8" style="width:100%">
+    </div>
+
+
+
+
+    
+  ### layout.tsx 
+  Este é um componente de layout que define a estrutura básica da página dashboard. Ele geralmente contém elementos que aparecem em dashboard e subrotas de dashboard.
